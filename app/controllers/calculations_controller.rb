@@ -14,6 +14,11 @@ class CalculationsController < ApplicationController
   end
 
   def random
+    minimum_number = params[:first_id]
+    maximum_number = params[:second_id]
+    @min = minimum_number
+    @max = maximum_number
+    @random_number = rand(@min.to_i..@max.to_i)
   end
 
   def payment

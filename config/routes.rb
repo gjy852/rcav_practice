@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   get('/random/:first_id/:second_id', { :controller => "calculations", :action => "random" })
 
-  get('/payment/:id', { :controller => "calculations", :action => "payment" })
+  get('/payment/:interest_rate/:number_of_years/:principal_value', { :controller => "calculations", :action => "payment" })
 end

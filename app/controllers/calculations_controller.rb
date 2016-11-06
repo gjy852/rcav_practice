@@ -22,5 +22,15 @@ class CalculationsController < ApplicationController
   end
 
   def payment
+    @interest_rate = params[:interest_rate].to_f
+    @number_of_years = params[:number_of_years].to_i
+    @principal_value = params[:principal_value].to_i
+
+    @interest_rate_decimal = @interest_rate / 10000
+    rate = @interest_rate_decimal / 12
+    nper = @number_of_years * 12
+
+    @monthly_payment = (rate * @principal_value)/(1 - (1 + rate)**-nper)
+
   end
 end
